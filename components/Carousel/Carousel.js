@@ -7,7 +7,8 @@ class Carousel {
     this.imgs = Array.from(this.carousel.querySelectorAll("img"));
     this.currIndex = this.imgs.indexOf(this.carousel.querySelector(".current"));
 
-    this.left.addEventListener("click", () => {
+    this.left.addEventListener("click", e => {
+      e.stopPropagation();
       this.imgs[this.currIndex].classList.remove("current");
       let nextIndex = this.currIndex - 1;
       console.log(nextIndex);
@@ -23,7 +24,8 @@ class Carousel {
       }
     });
 
-    this.right.addEventListener("click", () => {
+    this.right.addEventListener("click", e => {
+      e.stopPropagation();
       this.imgs[this.currIndex].classList.remove("current");
       let nextIndex = this.currIndex + 1;
       console.log(nextIndex);
